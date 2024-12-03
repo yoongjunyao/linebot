@@ -14,11 +14,11 @@ import re
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('6nVcItOmiqSfD/1J+THWsTzvDOfVLHIhtrvlltLU+aNy6Zw9kzK3tZT6oDWs/86Tkronvv4mbchkTNeOKA0djpLLZRF9RiLOWcY7Fulm+hpb3bh/BGiR8bqvvqGxjpQ5HEDWSYfERJzetfN1IbKj8QdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('6EnsTmbA8HylzZ2lBn2SvHBh4nDZsxLwAPFAOpTkkVhs/ZmA3b9c4dfFe+9b6JO/wxX3gqJJgGyPFCUok7JkDtyF1gUgex2lgih6i28nhOb+AOGdNbz9d7dsYQgCR++CydY4ajh2jeEtz1x+sSV1nQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('cb8a9cb5c70b1bed7adf4f521ed713b6')
+handler = WebhookHandler('5102e18f461cfcf78a847a33a126ec54')
 
-line_bot_api.push_message('U6a47d7e0a37f2e732e12675f7f8f1762', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('Uff248f1ad34ea853e4a785d4eb82799e', TextSendMessage(text='你可以開始了'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -46,7 +46,7 @@ def handle_message(event):
     if re.match('告訴我秘密',message):
         audio_message = AudioSendMessage(
             original_content_url='https://campus-studio.com/download/twsong.mp3',
-            duration=2000
+            duration=81000
         )
         line_bot_api.reply_message(event.reply_token, audio_message)
     else:
